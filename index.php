@@ -1,9 +1,25 @@
+<?php
+$viteOrigin = 'http://127.0.0.1:5173';
+$viteErrorCode = 0;
+$viteErrorMessage = '';
+$viteSocket = @fsockopen('127.0.0.1', 5173, $viteErrorCode, $viteErrorMessage, 0.05);
+$viteIsRunning = is_resource($viteSocket);
+
+if ($viteIsRunning) {
+    fclose($viteSocket);
+}
+?>
 <html>
     <head>
-        <link rel="stylesheet" href="dist/assets/style.css">
+        <?php if ($viteIsRunning): ?>
+            <script type="module" src="<?= $viteOrigin ?>/@vite/client"></script>
+            <script type="module" src="<?= $viteOrigin ?>/src/main.js"></script>
+        <?php else: ?>
+            <link rel="stylesheet" href="dist/assets/style.css">
+        <?php endif; ?>
     </head>
     <body>
-    <h2 class="text-sm font-bold">Calculadora Juros Compostos</h2>
+    <h2 class="text-sm font-bold">Calculadora Juros Compostos aaskhdj</h2>
     <?php  
     
     echo('Olá'); 
@@ -13,11 +29,11 @@
         <tr>
             <td>Valor Mensal</td>
             <td>Mês</td>
+            olá
         </tr>
         <tr>
-            <td>1000</td>
+            <td>100000000</td>
 </td>
-            3
         </tr>
     </table>
     </body>
