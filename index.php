@@ -19,22 +19,44 @@ if ($viteIsRunning) {
         <?php endif; ?>
     </head>
     <body>
-    <h2 class="text-sm font-bold">Calculadora Juros Compostos aaskhdj</h2>
-    <?php  
+
+
+    <?php 
     
-    echo('Olá'); 
-    
+    $valorInicial = 20000;
+    $valorMensal = 0;
+    $taxaJurosMensal = 1;
+    $periodoMeses = 12 * 8;
+    $valorAtual = $valorInicial;
+    $mesAtual = 1;
+    $totalJuros = 0;
+
     ?>
-    <table style="border: 1;border-color: black;">
-        <tr>
-            <td>Valor Mensal</td>
-            <td>Mês</td>
-            olá
+
+    <h2 class="text-4xl font-bold">Calculadora Juros Compostos</h2>
+
+    <table class="border border-collapse mt-4 text-center">
+        <tr class="border">
+            <td class="border p-1">Valor Mensal</td>
+            <td class="border p-1">Mês</td>
+            <td class="border p-1">Valor Total</td>
         </tr>
-        <tr>
-            <td>100000000</td>
-</td>
+
+        <?php for($periodoMeses; $periodoMeses > 0; $periodoMeses--){     
+            
+                $valorAtual = $valorAtual * ($taxaJurosMensal / 100 + 1) + $valorMensal;
+            
+        ?>
+        <tr class="border">
+            <td class="border borde p-1"><?= $valorMensal ?></td></td>
+            <td class="border borde p-1"><?php echo $mesAtual++; ?></td></td>
+            <td class="border borde p-1"><?= number_format($valorAtual, 2)?></td></td>
         </tr>
+        <?php }?>
+
+    
+       
+        
     </table>
     </body>
 </html>
