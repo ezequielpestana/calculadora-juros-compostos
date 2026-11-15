@@ -1,0 +1,20 @@
+# Dependencias instaladas pelo npm
+/node_modules/
+
+# Arquivos gerados pelo Vite
+/dist/
+
+# Configuracoes locais e segredos
+.env
+.env.*
+!.env.example
+.npmrc
+
+# Logs e arquivos do sistema
+*.log
+.DS_Store
+Thumbs.db
+
+# Configuracoes locais de editores
+/.idea/
+/.vscode/
